@@ -10,4 +10,16 @@ else {
   notice("I dont know what to think about ${operatingsystem}. Its a ${osfamily}, isnt it?")
 }
 
+class { 'nodejs':
+  version => 'stable',
+}
+
+package { 'express':
+  provider => 'npm',
+  require  => Class['nodejs']
+}
+
 include system-update
+include nodejs
+include stdlib
+include wget
