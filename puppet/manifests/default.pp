@@ -1,4 +1,4 @@
-Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
+Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ] }
 
 # Node
 class { 'nodejs':
@@ -8,9 +8,9 @@ class { 'nodejs':
 
 class node_modules {
 
-  $node_packages = [  "npm", "yo", "bower", "grunt-cli",
-                      "gulp", "express", "express-generator",
-                      "mongoose"  ]
+  $node_packages = [  'npm', 'yo', 'bower', 'grunt-cli',
+                      'gulp', 'express', 'mongoose',
+                      'generator-express', 'generator-angular'  ]
 
   package { $node_packages:
     provider => 'npm',
@@ -18,10 +18,30 @@ class node_modules {
   }
 }
 
+# Mongodb
+class mongo_databases {
+  mongodb::db { 'development':
+    user          => 'development',
+    password      => 'development',
+  }
+  mongodb::db { 'test':
+    user          => 'test',
+    password      => 'test',
+  }
+    mongodb::db { 'production':
+    user          => 'production',
+    password      => 'production',
+  }
+}
+
+
 # Include modules
 include system-update
-include nodejs
+
 include stdlib
 include wget
-include ::mongodb::server
+include nodejs
 include node_modules
+
+include ::mongodb::server
+include mongo_databases
