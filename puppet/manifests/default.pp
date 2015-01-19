@@ -32,6 +32,10 @@ class mongo_databases {
   }
 }
 
+class git {
+
+}
+
 class git_configurations {
   git::config { 'user.name':
     value => 'Fabio H. G. Barbosa',
@@ -56,4 +60,4 @@ include ::mongodb::server
 include mongo_databases
 
 include git
-include git_configurations
+#include git_configurations
