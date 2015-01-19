@@ -13,3 +13,6 @@
 [submodule "projects/example_nodejs"]
 	path = projects/example_nodejs
 	url = git@github.com:fabiohbarbosa/example_nodejs.git
+[submodule "puppet/modules/git"]
+	path = puppet/modules/git
+	url = git@github.com:puppetlabs/puppetlabs-git.git

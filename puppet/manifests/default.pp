@@ -56,3 +56,4 @@ include ::mongodb::server
 include mongo_databases
 
 include git
+include git_configurations
