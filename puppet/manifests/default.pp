@@ -6,11 +6,9 @@ class { 'nodejs':
   with_npm => false,
 }
 
+# Install node modules to server
 class node_modules {
-
-  $node_packages = [  'npm', 'yo', 'bower', 'grunt-cli',
-                      'gulp', 'express', 'mongoose',
-                      'generator-express', 'generator-angular'  ]
+  $node_packages = [  'npm', 'yo', 'bower', 'generator-express'  ]
 
   package { $node_packages:
     provider => 'npm',
@@ -34,6 +32,17 @@ class mongo_databases {
   }
 }
 
+class git_configurations {
+  git::config { 'user.name':
+    value => 'Fabio H. G. Barbosa',
+  }
+
+  git::config { 'user.email':
+    value => 'fabiohbarbosa@gmail.com',
+  }
+}
+
+class { 'git': }
 
 # Include modules
 include system-update
@@ -45,3 +54,5 @@ include node_modules
 
 include ::mongodb::server
 include mongo_databases
+
+include git

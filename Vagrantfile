@@ -6,12 +6,11 @@ Vagrant.configure("2") do |config|
     config.vm.network "forwarded_port", guest: 3000, host: 3000
     config.vm.synced_folder "./", "/vagrant", id: "vagrant-root"
     config.vm.provision :shell, :path => "scripts/welcome.sh"
-    config.vm.provision :shell, :path => "scripts/example-start.sh"
     # config.vm.provision :shell, :inline => "echo Hello, World"
 
     config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "puppet/manifests"
       puppet.module_path    = "puppet/modules"
-      puppet.options        = ['--verbose']
+      puppet.options        = ['--verbose', '--debug']
     end
 end
