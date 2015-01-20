@@ -21,7 +21,7 @@ class mongo_databases {
   mongodb::db { 'development':
     user          => 'development',
     password      => 'development',
-  }
+
   mongodb::db { 'test':
     user          => 'test',
     password      => 'test',
@@ -31,22 +31,6 @@ class mongo_databases {
     password      => 'production',
   }
 }
-
-class git {
-
-}
-
-class git_configurations {
-  git::config { 'user.name':
-    value => 'Fabio H. G. Barbosa',
-  }
-
-  git::config { 'user.email':
-    value => 'fabiohbarbosa@gmail.com',
-  }
-}
-
-class { 'git': }
 
 # Include modules
 include system-update
@@ -58,6 +42,3 @@ include node_modules
 
 include ::mongodb::server
 include mongo_databases
-
-include git
-#include git_configurations
