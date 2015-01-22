@@ -8,7 +8,7 @@ class { 'nodejs':
 
 # Install node modules to server
 class node_modules {
-  $node_packages = [  'npm', 'yo', 'bower', 'generator-express'  ]
+  $node_packages = [  'npm', 'gulp'  ]
 
   package { $node_packages:
     provider => 'npm',
@@ -21,7 +21,7 @@ class mongo_databases {
   mongodb::db { 'development':
     user          => 'development',
     password      => 'development',
-
+  }
   mongodb::db { 'test':
     user          => 'test',
     password      => 'test',
