@@ -19,7 +19,8 @@
     "body-parser": "^1.10.2",
     "express": "^4.11.1",
     "glob": "^4.3.5",
-    "jade": "^1.9.1"
+    "jade": "^1.9.1",
+    "mongoose": "^3.8.21"
   },
   "devDependencies": {
     "gulp": "^3.8.10",
