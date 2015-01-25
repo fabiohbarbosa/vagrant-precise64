@@ -1,7 +1,8 @@
-var gulp = require('gulp'),
-    nodemon = require('gulp-nodemon'),
-    livereload = require('gulp-livereload'),
-    sass = require('gulp-ruby-sass');
+var gulp = require('gulp');
+var nodemon = require('gulp-nodemon');
+var livereload = require('gulp-livereload');
+var sass = require('gulp-ruby-sass');
+var jade = require('jade');
 
 gulp.task('sass', function () {
     return gulp.src('./public/css/*.scss')
@@ -10,8 +11,15 @@ gulp.task('sass', function () {
         .pipe(livereload());
 });
 
+gulp.task('jade', function () {
+    return gulp.src('./app/views/*.jade')
+        .pipe(jade())
+        .pipe(gulp.dest('./app/views/'))
+        .pipe(livereload());
+});
+
 gulp.task('watch', function() {
-    gulp.watch('./public/css/*.scss', ['sass']);
+    gulp.watch('./app/views/*.jade', ['jade']);
 });
 
 gulp.task('develop', function () {

@@ -8,7 +8,8 @@ var config = {
         app: {
             name: 'pizzaria'
         },
-        port: 3000
+        port: 3000,
+        db: 'mongodb://localhost/development'
     },
 
     test: {
@@ -16,7 +17,8 @@ var config = {
         app: {
             name: 'pizzaria'
         },
-        port: 3000
+        port: 3000,
+        db: 'mongodb://localhost/test'
     },
 
     production: {
@@ -24,8 +26,8 @@ var config = {
         app: {
             name: 'pizzaria'
         },
-        port: 3000
+        port: 3000,
+        db: 'mongodb://localhost/production'
     }
 };
-
 module.exports = config[env];

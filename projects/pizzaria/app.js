@@ -2,14 +2,13 @@ var express = require('express');
 var config = require('./config/config');
 var glob = require('glob');
 
-var models = glob.sync(config.root + '/app/models/*.js');
-models.forEach(function (model) {
-    require(model);
-});
+// Express
 var app = express();
 
 require('./config/express')(app, config);
+require('./config/mongoose')(config);
 
+// Server
 var server = app.listen(config.port, function () {
     var host = server.address().address;
     var port = server.address().port;

@@ -26,7 +26,7 @@ class mongo_databases {
     user          => 'test',
     password      => 'test',
   }
-    mongodb::db { 'production':
+  mongodb::db { 'production':
     user          => 'production',
     password      => 'production',
   }
@@ -41,4 +41,5 @@ include nodejs
 include node_modules
 
 include ::mongodb::server
+include ::mongodb::client
 include mongo_databases
