@@ -2,13 +2,13 @@ Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ] }
 
 # Node
 class { 'nodejs':
-  version => 'stable',
-  with_npm => false,
+  version => 'stable'
+  #with_npm => false,
 }
 
 # Install node modules to server
 class node_modules {
-  $node_packages = [  'npm', 'gulp'  ]
+  $node_packages = [  'npm', 'gulp', 'bower', 'yo'  ]
 
   package { $node_packages:
     provider => 'npm',
