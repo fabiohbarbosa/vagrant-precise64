@@ -1,0 +1,20 @@
+{
+  "name": "pizzaria",
+  "version": "0.0.1",
+  "homepage": "https://github.com/fabiohbarbosa/vagrant_precise64",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "mongoose": "~3.9.7"
+  }
+}
